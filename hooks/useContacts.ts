@@ -8,12 +8,14 @@ export function useContacts() {
   const queryClient = useQueryClient();
 
   // Query for fetching all contacts
+  //query => fechting data from (GET) => useQuery
   const contactsQuery = useQuery({
     queryKey: ["contacts"],
     queryFn: getContacts,
   });
 
   // Create contact mutation
+  //Mutations =. modifying  Data (create,update, and delete)= >useMutation
   const createContactMutation = useMutation({
     mutationFn: createContact,
     onSuccess: () => {
@@ -58,7 +60,7 @@ export function useContacts() {
 
 // Hook for fetching a single contact
 export function useContact(id: string) {
-  const queryClient = useQueryClient();
+  // const queryClient = useQueryClient();
   const contactQuery = useQuery({
     queryKey: ["contact", id],
     queryFn: () => getContactById(id),
